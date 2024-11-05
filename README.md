@@ -1,3 +1,43 @@
+# 概述
+本仓库 fork 自 [KennFalcon/elasticsearch-analysis-hanlp](https://github.com/KennFalcon/elasticsearch-analysis-hanlp)。
+
+在原仓库的基础上做了如下调整：
+
+1. 构建工具从 Gradle 变为 Maven
+2. 增加对 Elasticsearch 7.10.2+、8.x 的支持
+
+## 使用方式
+
+将本项目 clone 到本地，然后基于 Elasticsearch 版本切换到对应的分支即可。
+
+### 7.x
+
+如果需要 7.10.2 以后的版本，则先将分支切换到 7.x-release，然后修改 `pom.xml` 中的 `elasticsearch.version` 即可：
+
+```xml
+<elasticsearch.version>7.17.25</elasticsearch.version>
+```
+
+### 8.x
+
+如果需要 8.x 版本，则先将分支切换到 8.x-release，然后修改 `pom.xml` 中的 `elasticsearch.version` 即可：
+
+```xml
+<elasticsearch.version>8.10.0</elasticsearch.version>
+```
+
+**注意：**  
+8.x 版本需要使用 JDK17，Maven 3.8.1+。
+
+### 打包
+
+```shell
+mvn clean package
+```
+
+打包完成后，会在 `target/releases` 目录下生成对应版本的插件压缩包，直接使用该压缩包进行安装即可。
+
+
 # elasticsearch-analysis-hanlp
 HanLP Analyzer for ElasticSearch
 
